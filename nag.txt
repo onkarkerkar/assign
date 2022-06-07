@@ -1,5 +1,6 @@
-apt install -y apache2 apache2-utils autoconf gcc libc6 libgd-dev make php python python python3 unzip wget
-cd /temp/
+dpkg-reconfigure tzdata
+apt install -y apache2 apache2-utils autoconf gcc libc6 libgd-dev make php python python3 unzip wget
+cd /tmp/
 wget http://192.168.1.151/sw/sec_tools/nagios/nagios-4.4.5.tar.gz
 tar -xf nagios-4.4.5.tar.gz
 cd  nagios-4.4.5
@@ -34,4 +35,9 @@ chmod 755 check_ncpa.py
 cd /usr/local/nagios/etc/objects/
 
 
+#/usr/local/nagios/etc/objects/command.cfg
+#	define command {
+#		command_name	check_ncpa
+#		command_line	$USER1$/check_ncpa.py -H $HOSTADDRESS$ $ARG1$
+#			} 
 
